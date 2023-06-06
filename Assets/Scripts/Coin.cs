@@ -6,12 +6,14 @@ public class Coin : MonoBehaviour {
 
 	private Collider2D _collider;
 	private SpriteRenderer _renderer;
+	private AudioSource _sound;
 
-	void Awake()
+    void Awake()
 	{
 		_collider = GetComponent<Collider2D> ();
 		_renderer = GetComponent<SpriteRenderer> ();
-	}
+        _sound = GetComponent<AudioSource> ();
+    }
 
 	void OnEnable()
 	{
@@ -29,6 +31,8 @@ public class Coin : MonoBehaviour {
 
         floatingText.Show("+" + Score.MONEY_SCORE_VALUE, Color.white, transform.position);
 		_collectAnimation();
+
+		_sound.Play();
 	}
 
 	void _collectAnimation(){
