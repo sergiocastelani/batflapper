@@ -21,7 +21,7 @@ class AdsController : MonoBehaviour
     {
         if (_implementation == null)
         {
-#if UNITY_WEBPLAYER
+#if UNITY_WEBGL
             _implementation = new AdsJavascript();
 #else
             _implementation = new AdsUnity();

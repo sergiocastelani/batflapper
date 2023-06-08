@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Bat-Flappy</title>
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas" width=960 height=600></canvas>
+
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+
+    <div id="unity-warning"> </div>
+
+    <div id="unity-footer">
+      <div id="unity-webgl-logo"></div>
+      <div id="unity-fullscreen-button"></div>
+      <div id="unity-build-title">Bat-Flappy</div>
+    </div>
+  </div>
+
+  <div id="adOverlay">
+    <img id="closeIcon" src="assets/icons8-close-192.png" onclick="closeAd()">
+    <div id="adContainer">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5400185417979318"
+        crossorigin="anonymous"></script>
+      <ins class="adsbygoogle" style="display:inline-block;width:960px;height:600px"
+        data-ad-client="ca-pub-5400185417979318" data-ad-slot="7874366727"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+  <script src="assets/ads.js"></script>
+  <script src="assets/unity.js"></script>
+</body>
+
+</html>
