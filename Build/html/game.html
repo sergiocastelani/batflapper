@@ -10,24 +10,39 @@
 </head>
 
 <body>
-  <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas" width=960 height=600></canvas>
-
-    <div id="unity-loading-bar">
-      <div id="unity-logo"></div>
-      <div id="unity-progress-bar-empty">
-        <div id="unity-progress-bar-full"></div>
+  <main>
+    <section id="game-section">
+      <div id="unity-overlay">
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>
+        <div id="unity-warning"> </div>
       </div>
-    </div>
 
-    <div id="unity-warning"> </div>
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+        <div id="unity-footer">
+          <img id="unity-webgl-logo" src="assets/webgl-logo.png"/>
+          <div id="unity-build-title">Bat-Flappy</div>
+          <img id="unity-fullscreen-button" src="assets/fullscreen-button.png"/>
+        </div>
+      </div>
+    </section>
 
-    <div id="unity-footer">
-      <div id="unity-webgl-logo"></div>
-      <div id="unity-fullscreen-button"></div>
-      <div id="unity-build-title">Bat-Flappy</div>
-    </div>
-  </div>
+    <section id="description-section">
+      <h2>
+        Use the spacebar to make it fly.
+      </h2>
+      <p>
+        The source code for this project is freely availabe on 
+        <a target="_blank" href="https://github.com/sergiocastelani/batflapper">GitHub</a>
+        under GPL-2.0 license. 
+      </p>
+    </section>
+  </main>
 
   <div id="adOverlay">
     <img id="closeIcon" src="assets/icons8-close-192.png" onclick="closeAd()">
@@ -42,6 +57,13 @@
       </script>
     </div>
   </div>
+
+  <footer>
+    <a target="_blank" href="https://www.freepik.com/free-vector/underground-cave-with-water-blue-crystals_17618901.htm#query=cartoon%20cave&position=0&from_view=keyword&track=ais">
+      Background image by upklyak
+    </a> 
+    on Freepik
+  </footer>
 
   <script src="assets/ads.js"></script>
   <script src="assets/unity.js"></script>
