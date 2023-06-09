@@ -13,24 +13,34 @@ public class Heart : MonoBehaviour {
 	{
 		_originalScale = transform.localScale;
 		_collider = GetComponent<Collider2D> ();
-		_beatingAnimation();
 	}
 
 	void OnEnable()
 	{
 		transform.localScale = _originalScale;
 		_collider.enabled = true;
-	}
+    
+		var sprite = GetComponent<SpriteRenderer>();
+        var color = sprite.color;
+        color.a = 1;
+        sprite.color = color;
 
-	void OnTriggerEnter2D(Collider2D collider)
+        _beatingAnimation();
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
 	{
+		gameObject.GetComponent<AudioSource>().Play();
+
 		_collider.enabled = false;
+
 		var player = GameObject.FindWithTag("Player");
-		player.GetComponent<BatLife> ().RecoverHp ();
+		player.GetComponent<BatLife>().RecoverHp();
 		_collectAnimation();
 	}
 
-	private void _beatingAnimation(){
+	private void _beatingAnimation()
+	{
 		var smallScale = _originalScale - new Vector3(0.5f, 0.5f, 0f);
 
 		var director = new Director();
@@ -42,8 +52,9 @@ public class Heart : MonoBehaviour {
 		director.Play(this, _beatingAnimation);
 	}
 
-	private void _collectAnimation(){
-		var director = new Director();
+	private void _collectAnimation()
+	{
+        var director = new Director();
 		director.Add(Tweening.Position(transform, transform.localPosition, transform.localPosition + Vector3.up, 0.8f, Easing.Bounce.Out));
 		director.Add(Tweening.Blink(GetComponent<SpriteRenderer>(), false, 1f));
 		director.Play(this, null);
