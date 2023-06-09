@@ -13,9 +13,16 @@ public class StartMenuGUI : MonoBehaviour {
 
     void OnEnable()
 	{
-		AdsController.PrepareAd();
+		try
+		{
+            AdsController.PrepareAd();
+        } 
+		catch(Exception ex) 
+		{
+			Debug.LogException(ex);
+		}
 
-		_availableLivesText = transform.Find("panel/lives/availableText").GetComponent<Text>();
+        _availableLivesText = transform.Find("panel/lives/availableText").GetComponent<Text>();
 		_lifeProgressSlider = transform.Find("panel/lives/progressBar").GetComponent<Slider>();
 		_lifeProgressText = transform.Find("panel/lives/progressText").GetComponent<Text>();
         _invalidSound = transform.Find("invalidSound").GetComponent<AudioSource>();
@@ -89,12 +96,20 @@ public class StartMenuGUI : MonoBehaviour {
 
 	public void VideoButtonClick()
 	{
-		AdsController.ShowAd( (ok) =>
+		try 
 		{
-            AdsController.PrepareAd();
+            AdsController.ShowAd((ok) =>
+            {
+                AdsController.PrepareAd();
 
-            if (ok)
-                Lives.Available += 10;
-        });
-	}
+                if (ok)
+                    Lives.Available = Lives.Max;
+            });
+        }
+        catch (Exception e)
+		{
+            Debug.LogException(e);
+            Lives.Available = Lives.Max;
+        }
+    }
 }
