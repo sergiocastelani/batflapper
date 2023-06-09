@@ -19,6 +19,14 @@ body { padding: 0; margin: 0 }
     width: 64px;
 }
 
+#closeTimerText {
+    font-size: 30pt;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
 #adContainer {
 }
 
