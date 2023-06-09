@@ -4,7 +4,7 @@ function PrepareAd()
 
 function ShowAd()
 {
-    document.getElementById("adOverlay").style.visibility = "visible";
+    document.getElementById("adOverlay").style.display = "block";
 
     //close button timer
     let closeButton = document.getElementById("closeIcon");
@@ -33,5 +33,5 @@ function ShowAd()
 
 function closeAd()
 {
-    document.getElementById("adOverlay").style.visibility = "hidden";
+    document.getElementById("adOverlay").style.display = "none";
 }
