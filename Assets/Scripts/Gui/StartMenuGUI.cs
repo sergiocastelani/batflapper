@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using Flapper.Utils.Transitions;
 
 public class StartMenuGUI : MonoBehaviour {
+	public CreditsGUI creditsGUI;
+
+	private GameObject _mainPanel;
 	private Text _availableLivesText;
 	private Slider _lifeProgressSlider;
 	private Text _lifeProgressText;
@@ -22,6 +25,7 @@ public class StartMenuGUI : MonoBehaviour {
 			Debug.LogException(ex);
 		}
 
+        _mainPanel = transform.Find("panel").gameObject;
         _availableLivesText = transform.Find("panel/lives/availableText").GetComponent<Text>();
 		_lifeProgressSlider = transform.Find("panel/lives/progressBar").GetComponent<Slider>();
 		_lifeProgressText = transform.Find("panel/lives/progressText").GetComponent<Text>();
@@ -73,6 +77,11 @@ public class StartMenuGUI : MonoBehaviour {
 		transform.Find("openSound").GetComponent<AudioSource>().Play();
 	}
 
+	public void ShowMainPanel()
+	{
+		_mainPanel.SetActive(true);
+	}
+
 	public void PlayButtonClick(){
 		if(Lives.Available > 0){
 			Lives.Available -= 1;
@@ -112,4 +121,10 @@ public class StartMenuGUI : MonoBehaviour {
             Lives.Available = Lives.Max;
         }
     }
+
+	public void CreditsButtonClick()
+	{
+		_mainPanel.SetActive(false);
+		creditsGUI.Show();
+	}
 }
