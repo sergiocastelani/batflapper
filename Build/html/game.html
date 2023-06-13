@@ -7,10 +7,17 @@
   <title>Bat-Flappy</title>
   <link rel="shortcut icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/ads.js"></script>
 </head>
 
 <body>
   <main>
+    <!-- Applixir ads -->
+    <div id="applixir_vanishing_div" hidden>
+      <iframe id="applixir_parent" ></iframe>
+    </div>
+    <script type="text/javascript" src="https://cdn.applixir.com/applixir.sdk3.0m.js" ></script>
+
     <section id="game-section">
       <div id="unity-overlay">
         <div id="unity-loading-bar">
@@ -33,30 +40,33 @@
     </section>
 
     <section id="description-section">
-      <h2>
+      <h2 style="text-align: center;">
         Use the spacebar to make it fly.
       </h2>
-      <p>
-        The source code for this project is freely availabe on 
-        <a target="_blank" href="https://github.com/sergiocastelani/batflapper">GitHub</a>
-        under GPL-2.0 license. 
-      </p>
+      <div>
+        <p>
+          This is a flapper project for those interested in learning game development using Unity engine.<br>
+          It features:
+          <ul>
+            <li>2D Grids for scenary construction</li>
+            <li>Random scenary instantiation and destruction</li>
+            <li>Sprite atlas</li>
+            <li>Responsive GUI</li>
+            <li>Score keeping</li>
+            <li>Unity Ads</li>
+            <li>And many more features that you can check in the source code if you liked it</li>
+          </ul>
+        </p>
+        <p>
+          The source code for this project is 
+          <a target="_blank" href="https://github.com/sergiocastelani/batflapper">
+            freely availabe on GitHub
+          </a>
+          under GPL-2.0 license.
+        </p>
+      </div>
     </section>
   </main>
-
-  <div id="adOverlay">
-    <img id="closeIcon" src="assets/icons8-close-192.png" onclick="closeAd()">
-    <p id="closeTimerText">0 s</p>
-    <div id="adContainer">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5400185417979318"
-        crossorigin="anonymous"></script>
-      <ins class="adsbygoogle" style="display:inline-block;width:960px;height:600px"
-        data-ad-client="ca-pub-5400185417979318" data-ad-slot="7874366727"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </div>
 
   <footer>
     <a target="_blank" href="https://www.freepik.com/free-vector/underground-cave-with-water-blue-crystals_17618901.htm#query=cartoon%20cave&position=0&from_view=keyword&track=ais">
@@ -65,7 +75,6 @@
     on Freepik
   </footer>
 
-  <script src="assets/ads.js"></script>
   <script src="assets/unity.js"></script>
 </body>
 
