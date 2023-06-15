@@ -47,7 +47,7 @@ public class Bat : MonoBehaviour {
 	private bool FlyButtonHaveBeenPressed()
 	{
 	#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_WEBGL
-		return Input.GetKeyDown (KeyCode.Space);
+		return Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
 	#else
 		return Input.touches.Any(touch => touch.phase == TouchPhase.Began);
 	#endif
