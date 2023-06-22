@@ -16,8 +16,10 @@ public class StartMenuGUI : MonoBehaviour {
 
     void OnEnable()
 	{
-		try
-		{
+		StartCoroutine(startLowFramerate());
+
+        try
+        {
             AdsController.PrepareAd();
         } 
 		catch(Exception ex) 
@@ -48,10 +50,17 @@ public class StartMenuGUI : MonoBehaviour {
 	}
 
 	void OnDisable(){
-		PlayerPrefs.Save();
+        Application.targetFrameRate = 60;
+        PlayerPrefs.Save();
 	}
 
-	private IEnumerator updateLifeProgress(){
+	private IEnumerator startLowFramerate()
+	{
+        yield return new WaitForSeconds(2);
+        Application.targetFrameRate = 15;
+    }
+
+    private IEnumerator updateLifeProgress(){
 		while(true){
 			Lives.Update();
 			_availableLivesText.text = Lives.Available.ToString();
@@ -67,7 +76,8 @@ public class StartMenuGUI : MonoBehaviour {
 		}
 	}
 
-	public void Show(){
+	public void Show()
+	{
 		var	mainPanel = transform.Find("panel").gameObject;
 		var director = new Director();
 		director.Add(Tweening.Scale(mainPanel.transform, Vector3.zero, Vector3.one, 1f, Easing.Elastic.Out));
